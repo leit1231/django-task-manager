@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/app
+    environment:
+      DJANGO_DEBUG: "1"
+    command: poetry run python manage.py runserver 0.0.0.0:8001
